@@ -1,0 +1,11 @@
+C:\Users\5745497\source\repos\Heroflix\Heroflix\bin\Debug\netcoreapp2.0\Heroflix.deps.json
+C:\Users\5745497\source\repos\Heroflix\Heroflix\bin\Debug\netcoreapp2.0\Heroflix.runtimeconfig.json
+C:\Users\5745497\source\repos\Heroflix\Heroflix\bin\Debug\netcoreapp2.0\Heroflix.runtimeconfig.dev.json
+C:\Users\5745497\source\repos\Heroflix\Heroflix\bin\Debug\netcoreapp2.0\Heroflix.dll
+C:\Users\5745497\source\repos\Heroflix\Heroflix\bin\Debug\netcoreapp2.0\Heroflix.pdb
+C:\Users\5745497\source\repos\Heroflix\Heroflix\obj\Debug\netcoreapp2.0\Heroflix.csprojResolveAssemblyReference.cache
+C:\Users\5745497\source\repos\Heroflix\Heroflix\obj\Debug\netcoreapp2.0\Heroflix.csproj.CoreCompileInputs.cache
+C:\Users\5745497\source\repos\Heroflix\Heroflix\obj\Debug\netcoreapp2.0\Heroflix.AssemblyInfoInputs.cache
+C:\Users\5745497\source\repos\Heroflix\Heroflix\obj\Debug\netcoreapp2.0\Heroflix.AssemblyInfo.cs
+C:\Users\5745497\source\repos\Heroflix\Heroflix\obj\Debug\netcoreapp2.0\Heroflix.dll
+C:\Users\5745497\source\repos\Heroflix\Heroflix\obj\Debug\netcoreapp2.0\Heroflix.pdb
