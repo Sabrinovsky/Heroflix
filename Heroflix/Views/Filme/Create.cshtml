@@ -13,9 +13,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
+                <label asp-for="UrlCapa" class="control-label"></label>
+                <input asp-for="UrlCapa" class="form-control" />
+                <span asp-validation-for="UrlCapa" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
@@ -27,9 +27,13 @@
                 <input asp-for="AssistidoEm" class="form-control" />
                 <span asp-validation-for="AssistidoEm" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+
+                @Html.DropDownListFor(x=> x.Status, Html.GetEnumSelectList(typeof(Heroflix.Models.Enums.StatusFilme)), new { @class = "form-control"})
+
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">

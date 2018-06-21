@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Heroflix.Controllers.Database;
 using Heroflix.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,18 +11,24 @@ namespace Heroflix.Controllers
 {
     public class FilmeController : Controller
     {
+        HeroflixContext _heroflixContext;
+        public FilmeController(HeroflixContext heroflixContext)
+        {
+            _heroflixContext = heroflixContext;
+        }
         // GET: Filme
         public ActionResult Index()
         {
-            List<Filme> filmes = getFilmes();
 
-            return View(getFilmes());
+            List<Filme> filmes = _heroflixContext.Filmes.ToList();
+
+            return View(filmes);
         }
 
         // GET: Filme/Details/5
         public ActionResult Details(int id)
         {
-            List<Filme> filmes = getFilmes();
+            List<Filme> filmes = _heroflixContext.Filmes.ToList();
 
             Filme filme = filmes.Where(f => f.Id == id).First();
 
@@ -42,8 +49,9 @@ namespace Heroflix.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
+                _heroflixContext.Add(Filme);
+                _heroflixContext.SaveChanges();
+                
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -55,7 +63,7 @@ namespace Heroflix.Controllers
         // GET: Filme/Edit/5
         public ActionResult Edit(int id)
         {
-            List<Filme> filmes = getFilmes();
+            List<Filme> filmes = _heroflixContext.Filmes.ToList();
 
             Filme filme = filmes.Where(f => f.Id == id).First();
 
@@ -67,12 +75,25 @@ namespace Heroflix.Controllers
         // POST: Filme/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Filme FilmeNew)
         {
             try
             {
-                // TODO: Add update logic here
-                
+                List<Filme> filmes = _heroflixContext.Filmes.ToList();
+
+                Filme filme = filmes.Where(f => f.Id == id).First();
+
+                filme.AssistidoEm = FilmeNew.AssistidoEm;
+                filme.Elenco = FilmeNew.Elenco;
+                filme.Sinopse = FilmeNew.Sinopse;
+                filme.UrlCapa = FilmeNew.UrlCapa;
+                filme.Status = FilmeNew.Status;
+                filme.Genero = FilmeNew.Genero;
+                filme.Titulo = FilmeNew.Titulo;
+
+
+                _heroflixContext.SaveChanges();
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -84,7 +105,7 @@ namespace Heroflix.Controllers
         // GET: Filme/Delete/5
         public ActionResult Delete(int id)
         {
-            List<Filme> filmes = getFilmes();
+            List<Filme> filmes = _heroflixContext.Filmes.ToList();
 
             Filme filme = filmes.Where(f => f.Id == id).First();
 
@@ -98,8 +119,8 @@ namespace Heroflix.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _heroflixContext.Remove(Filme);
+                _heroflixContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -113,6 +134,7 @@ namespace Heroflix.Controllers
             Filmes.Add(new Filme
             {
                 Id = 1,
+                UrlCapa = "http://statics.livrariacultura.net.br/products/capas_lg/509/42131509.jpg",
                 Titulo = "Djanjo",
                 Elenco = "DiCaprio, o negão foda e l'Jackson",
                 Genero = "Aventura, drama",

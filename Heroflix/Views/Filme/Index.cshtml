@@ -13,7 +13,7 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    @Html.DisplayNameFor(model => model.UrlCapa)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Titulo)
@@ -40,7 +40,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                <img class="img-thumbnail" height="100" width="100" src="@item.UrlCapa"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
